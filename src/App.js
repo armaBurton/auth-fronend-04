@@ -6,4 +6,19 @@ import {
   Navigate,
 } from "react-router-dom";
 import { UserProvider } from "./context/UserProvider";
-import 
+import { Layout } from "./components/Layout/Layout";
+import { Authenticate } from "./views/Users/Authenticate";
+import "./App.css";
+import { Dashboard } from "./views/Users/Dashboard";
+
+export function App() {
+  const router = createBrowserRouter(
+    createRoutesFromElements(<Route path="/" element={<Layout />}></Route>)
+  );
+
+  return (
+    <UserProvider>
+      <RouterProvider router={router} />
+    </UserProvider>
+  );
+}
