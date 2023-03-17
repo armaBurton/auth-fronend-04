@@ -1,3 +1,5 @@
-export const Header = () => {
-  return <></>;
+import "./Header.css";
+
+export const Header = ({ children }) => {
+  return <header>{children}</header>;
 };
