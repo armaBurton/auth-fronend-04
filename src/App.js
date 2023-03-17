@@ -13,7 +13,11 @@ import { Dashboard } from "./views/Users/Dashboard";
 
 export function App() {
   const router = createBrowserRouter(
-    createRoutesFromElements(<Route path="/" element={<Layout />}></Route>)
+    createRoutesFromElements(
+      <Route path="/" element={<Layout />}>
+        <Route path="/login" element={<Authenticate />} />
+      </Route>
+    )
   );
 
   return (
