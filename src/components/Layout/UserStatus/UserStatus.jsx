@@ -40,7 +40,7 @@ export const UserStatus = () => {
       ) : (
         <>
           <p>
-            <Link className="nav-style"> Hello {thisUser?.username}</Link>
+            <Link className="nav-style">hello_{thisUser?.username}</Link>
           </p>
           <p>
             <Link to="/signout" className="nav-style" onClick={handleLogout}>

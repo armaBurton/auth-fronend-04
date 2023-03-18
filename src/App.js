@@ -12,6 +12,7 @@ import "./App.css";
 import { Dashboard } from "./views/Users/Dashboard";
 import { Main } from "./views/Main/Main";
 import { SignOut } from "./views/Users/SignOut";
+import { SignUp } from "./views/Users/SignUp";
 
 export function App() {
   const router = createBrowserRouter(
@@ -20,8 +21,7 @@ export function App() {
         <Route index element={<Navigate to="/main" />} />
         <Route path="/main" element={<Main />} />
         <Route path="/signin" element={<Authenticate />} />
-        {/* {/* <Route path="/signup" /> */}
-        {/* <Route path="/signout" element={<SignOut />} /> */}
+        <Route path="/signup" element={<SignUp />} />
       </Route>
     )
   );
