@@ -7,8 +7,17 @@ export const UserStatus = () => {
   console.log(`*** user ==> ` + JSON.stringify(user));
 
   return (
-    <div>
-      <p className="login">sign in</p>
+    <div className="auth-div">
+      <p>
+        <Link to="/signup" className="nav-style">
+          sign_up
+        </Link>
+      </p>
+      <p>
+        <Link to="login" className="nav-style">
+          login
+        </Link>
+      </p>
     </div>
   );
 };

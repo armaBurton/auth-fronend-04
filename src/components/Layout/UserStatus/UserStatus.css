@@ -1,4 +1,18 @@
-.login {
+.auth-div {
+  display: flex;
+  gap: 20px;
+}
+
+.nav-style {
+  text-decoration: none;
   color: aqua;
   cursor: pointer;
+}
+
+.nav-style:hover {
+  color: yellow;
+}
+
+.nav-style:active {
+  color: magenta;
 }
