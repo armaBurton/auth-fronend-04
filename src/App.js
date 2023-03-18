@@ -20,8 +20,8 @@ export function App() {
         <Route index element={<Navigate to="/main" />} />
         <Route path="/main" element={<Main />} />
         <Route path="/signin" element={<Authenticate />} />
-        <Route path="/signup" />
-        <Route path="/signout" element={<SignOut />} />
+        {/* {/* <Route path="/signup" /> */}
+        {/* <Route path="/signout" element={<SignOut />} /> */}
       </Route>
     )
   );

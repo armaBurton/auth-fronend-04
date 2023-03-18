@@ -1,14 +1,30 @@
 import "./UserStatus.css";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useAuth, useCurrentUser } from "../../../context/UserProvider";
+import { signOut } from "../../../services/users";
+import { useEffect, useState } from "react";
 
 export const UserStatus = () => {
   const user = useCurrentUser();
+  const navigate = useNavigate();
   console.log(`*** user ==> ` + JSON.stringify(user));
+
+  const [thisUser, setThisUser] = useState(user);
+
+  useEffect(() => {
+    setThisUser(user);
+  }, [user]);
+
+  const handleLogout = async (e) => {
+    e.preventDefault();
+    await signOut();
+    setThisUser(null);
+    navigate("/main");
+  };
 
   return (
     <div className="auth-div">
-      {!user ? (
+      {!thisUser?.username ? (
         <>
           <p>
             <Link to="/signup" className="nav-style">
@@ -24,10 +40,10 @@ export const UserStatus = () => {
       ) : (
         <>
           <p>
-            <Link className="nav-style"> Hello {user.username}</Link>
+            <Link className="nav-style"> Hello {thisUser?.username}</Link>
           </p>
           <p>
-            <Link to="/signout" className="nav-style">
+            <Link to="/signout" className="nav-style" onClick={handleLogout}>
               sign_out
             </Link>
           </p>

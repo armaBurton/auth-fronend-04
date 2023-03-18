@@ -25,6 +25,10 @@ export const UserProvider = ({ children }) => {
     }
   };
 
+  const setUserNull = () => {
+    setUser(null);
+  };
+
   const logout = useCallback(() => {
     signOut().then(() => setUser(null));
   });
@@ -36,8 +40,8 @@ export const UserProvider = ({ children }) => {
   }, []);
 
   const state = useMemo(
-    () => ({ loading, user, logout, login }),
-    [loading, user, logout, login]
+    () => ({ loading, user, setUserNull, logout, login }),
+    [loading, user, setUserNull, logout, login]
   );
 
   return (
