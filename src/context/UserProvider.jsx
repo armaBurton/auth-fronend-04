@@ -25,10 +25,12 @@ export const UserProvider = ({ children }) => {
     }
   };
 
-  const setUserNull = () => {
+  //eslint-disable-next-line react-hooks/exhaustive-deps
+  const setUserNull = useCallback(() => {
     setUser(null);
-  };
+  });
 
+  //eslint-disable-next-line react-hooks/exhaustive-deps
   const logout = useCallback(() => {
     signOut().then(() => setUser(null));
   });
