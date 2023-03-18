@@ -18,7 +18,7 @@ export function App() {
       <Route path="/" element={<Layout />}>
         <Route index element={<Navigate to="/main" />} />
         <Route path="/main" element={<Main />} />
-        <Route path="/login" element={<Authenticate />} />
+        <Route path="/signin" element={<Authenticate />} />
       </Route>
     )
   );

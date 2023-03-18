@@ -14,8 +14,8 @@ export const UserStatus = () => {
         </Link>
       </p>
       <p>
-        <Link to="login" className="nav-style">
-          login
+        <Link to="/signin" className="nav-style">
+          sign_in
         </Link>
       </p>
     </div>

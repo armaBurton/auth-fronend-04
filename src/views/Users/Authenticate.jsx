@@ -36,37 +36,41 @@ export const Authenticate = () => {
     }
   };
 
+  console.log(`*** user ==> ` + JSON.stringify(user));
+
   return (
-    <form onSubmit={() => {}} className="auth-form">
-      <label htmlFor="username">Username: </label>
-      <input
-        type="text"
-        id="username"
-        name="username"
-        placeholder="username"
-        value={username}
-        onChange={({ target }) => {
-          setUsername(target.value);
-        }}
-      />
-      <label htmlFor="password">Password: </label>
-      <input
-        type="text"
-        id="password"
-        name="password"
-        placeholder="password"
-        value={password}
-        onChange={({ target }) => setPassword(target.value)}
-      />
-      <button
-        className="row"
-        type="submit"
-        aria-disabled={!username || !password}
-        onClick={handleClick}
-      >
-        Sign In
-      </button>
-      <p className="row">{error}</p>
-    </form>
+    <section className="form-section">
+      <form onSubmit={() => {}} className="auth-form">
+        <label htmlFor="username">Username: </label>
+        <input
+          type="text"
+          id="username"
+          name="username"
+          placeholder="username"
+          value={username}
+          onChange={({ target }) => {
+            setUsername(target.value);
+          }}
+        />
+        <label htmlFor="password">Password: </label>
+        <input
+          type="text"
+          id="password"
+          name="password"
+          placeholder="password"
+          value={password}
+          onChange={({ target }) => setPassword(target.value)}
+        />
+        <button
+          className="row"
+          type="submit"
+          aria-disabled={!username || !password}
+          onClick={handleClick}
+        >
+          Sign In
+        </button>
+        <p className="row">{error}</p>
+      </form>
+    </section>
   );
 };
