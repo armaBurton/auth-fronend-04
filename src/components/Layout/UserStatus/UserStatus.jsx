@@ -20,7 +20,6 @@ export const UserStatus = () => {
     await signOut();
     setThisUser(null);
     window.location.reload();
-    // navigate("/main");
   };
 
   return (
