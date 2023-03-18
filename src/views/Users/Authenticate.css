@@ -28,3 +28,13 @@ button {
   font-weight: 900;
   font-size: 1.25rem;
 }
+
+label {
+  color: yellow;
+}
+
+input {
+  height: 30px;
+  padding-left: 5px;
+  color: aqua;
+}

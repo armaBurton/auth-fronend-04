@@ -12,7 +12,7 @@ export const Authenticate = () => {
   const { login } = useAuth();
 
   useEffect(() => {
-    if (user?.username) navigate("/private", { replace: true });
+    if (user?.username) navigate("/main", { replace: true });
     //eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
@@ -20,7 +20,7 @@ export const Authenticate = () => {
     try {
       e.preventDefault();
       await login({ username, password });
-      navigate("/private", { replace: true });
+      navigate("/main", { replace: true });
     } catch (err) {
       setError(err);
     }
@@ -54,7 +54,7 @@ export const Authenticate = () => {
         />
         <label htmlFor="password">Password: </label>
         <input
-          type="text"
+          type="password"
           id="password"
           name="password"
           placeholder="password"

@@ -8,16 +8,31 @@ export const UserStatus = () => {
 
   return (
     <div className="auth-div">
-      <p>
-        <Link to="/signup" className="nav-style">
-          sign_up
-        </Link>
-      </p>
-      <p>
-        <Link to="/signin" className="nav-style">
-          sign_in
-        </Link>
-      </p>
+      {!user ? (
+        <>
+          <p>
+            <Link to="/signup" className="nav-style">
+              sign_up
+            </Link>
+          </p>
+          <p>
+            <Link to="/signin" className="nav-style">
+              sign_in
+            </Link>
+          </p>
+        </>
+      ) : (
+        <>
+          <p>
+            <Link className="nav-style"> Hello {user.username}</Link>
+          </p>
+          <p>
+            <Link to="/signout" className="nav-style">
+              sign_out
+            </Link>
+          </p>
+        </>
+      )}
     </div>
   );
 };
