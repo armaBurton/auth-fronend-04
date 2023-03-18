@@ -19,7 +19,8 @@ export const UserStatus = () => {
     e.preventDefault();
     await signOut();
     setThisUser(null);
-    navigate("/main");
+    window.location.reload();
+    // navigate("/main");
   };
 
   return (
