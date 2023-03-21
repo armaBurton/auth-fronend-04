@@ -1,4 +1,5 @@
 import { useCurrentUser } from "../../context/UserProvider";
+import "./Main.css";
 
 export const Main = () => {
   const user = useCurrentUser();
