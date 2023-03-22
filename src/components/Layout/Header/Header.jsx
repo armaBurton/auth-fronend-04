@@ -5,7 +5,7 @@ export const Header = ({ children }) => {
   return (
     <header>
       <Link to="/main" className="header-link">
-        All_Together_Now
+        all_together_now
       </Link>
       {children}
     </header>
