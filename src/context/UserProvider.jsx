@@ -37,6 +37,7 @@ export const UserProvider = ({ children }) => {
 
   //eslint-disable-next-line react-hooks/exhaustive-deps
   const newUser = async ({ username, password }) => {
+    console.log(`*** username, password ==> ` + username, password);
     try {
       const user = await signUp(username, password);
       setUser(user);

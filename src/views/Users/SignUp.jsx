@@ -9,12 +9,30 @@ export const SignUp = () => {
   const [error, setError] = useState("");
   const navigate = useNavigate();
   const user = useCurrentUser();
-  const { SignUp } = useAuth();
+  const { newUser } = useAuth();
+
+  const handleSubmit = async (e) => {
+    try {
+      e.preventDefault();
+      await newUser({ username, password });
+      navigate("/main", { replace: true });
+    } catch (err) {
+      setError(err);
+      console.error(err);
+      navigate("/main", { replace: true });
+    }
+  };
 
   const handleClick = (e) => {
     e.preventDefault();
-    if ((!username, !password, !confirmPassword)) {
+    setError("");
+    if (!username || !password || !confirmPassword) {
       setError("All inputs must be populated.");
+    } else if (password !== confirmPassword) {
+      setError("Passwords must match.");
+    } else {
+      setError("");
+      handleSubmit(e);
     }
   };
 
@@ -55,7 +73,7 @@ export const SignUp = () => {
         <button
           className="row"
           type="submit"
-          aria-disabled={!username || !password}
+          aria-disabled={!username || !password || !confirmPassword}
           onClick={handleClick}
         >
           sign_up

@@ -26,6 +26,19 @@ export const getUserById = async (id) => {
   }
 };
 
+export const signUp = async (username, password) => {
+  const res = await fetch(`http://localhost:7890/api/v1/users/signup`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    credentials: "include",
+    mode: "cors",
+    body: JSON.stringify({ username, password }),
+  });
+  if (!res.ok) throw new Error("something something something");
+
+  return res.json();
+};
+
 export const signIn = async (username, password) => {
   const res = await fetch(`http://localhost:7890/api/v1/users`, {
     method: "POST",
@@ -47,17 +60,4 @@ export const signOut = async () => {
   });
 
   return res.ok;
-};
-
-export const signUp = async (username, password) => {
-  const res = await fetch(`http://localhost:7890/api/v1/users/signup`, {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    credentials: "include",
-    mode: "cors",
-    body: JSON.stringify({ username, password }),
-  });
-  if (!res.ok) throw new Error("something something something");
-
-  return res.json();
 };

@@ -3,7 +3,7 @@ import "./Main.css";
 
 export const Main = () => {
   const user = useCurrentUser();
-  console.log(`*** JSON.stringify(user) ==> ` + JSON.stringify(user));
+
   return (
     <section className="main-section">
       {user.status === 401 ? user.message : user.username}
