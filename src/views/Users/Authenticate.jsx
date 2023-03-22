@@ -22,7 +22,6 @@ export const Authenticate = () => {
       await login({ username, password });
       navigate("/main", { replace: true });
     } catch (err) {
-      console.log(`*** err ==> ` + err);
       setError(err);
       navigate("/main", { replace: true });
     }
