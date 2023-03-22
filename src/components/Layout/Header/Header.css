@@ -15,3 +15,7 @@ header {
 .header-link:hover {
   color: yellow;
 }
+
+.header-link:active {
+  color: magenta;
+}
