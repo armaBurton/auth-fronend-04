@@ -41,7 +41,7 @@ export const Authenticate = () => {
   return (
     <section className="form-section">
       <form onSubmit={() => {}} className="auth-form">
-        <label htmlFor="username">Username: </label>
+        <label htmlFor="username">username</label>
         <input
           type="text"
           id="username"
@@ -52,7 +52,7 @@ export const Authenticate = () => {
             setUsername(target.value);
           }}
         />
-        <label htmlFor="password">Password: </label>
+        <label htmlFor="password">password</label>
         <input
           type="password"
           id="password"
@@ -67,7 +67,7 @@ export const Authenticate = () => {
           aria-disabled={!username || !password}
           onClick={handleClick}
         >
-          Sign In
+          sign_in
         </button>
         <p className="row">{error}</p>
       </form>

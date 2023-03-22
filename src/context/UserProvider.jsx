@@ -6,7 +6,7 @@ import {
   useMemo,
   useState,
 } from "react";
-import { getCurrentUser, signIn, signOut } from "../services/users";
+import { getCurrentUser, signIn, signOut, signUp } from "../services/users";
 import { renderView } from "../utils/renderView";
 
 const UserContext = createContext();
@@ -35,6 +35,16 @@ export const UserProvider = ({ children }) => {
     signOut().then(() => setUser(null));
   });
 
+  //eslint-disable-next-line react-hooks/exhaustive-deps
+  const newUser = async ({ username, password }) => {
+    try {
+      const user = await signUp(username, password);
+      setUser(user);
+    } catch (err) {
+      throw err;
+    }
+  };
+
   useEffect(() => {
     getCurrentUser()
       .then(setUser)
@@ -42,8 +52,8 @@ export const UserProvider = ({ children }) => {
   }, []);
 
   const state = useMemo(
-    () => ({ loading, user, setUserNull, logout, login }),
-    [loading, user, setUserNull, logout, login]
+    () => ({ loading, user, setUserNull, logout, login, newUser }),
+    [loading, user, setUserNull, logout, login, newUser]
   );
 
   return (
