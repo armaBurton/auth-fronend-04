@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useAuth, useCurrentUser } from "../../context/UserProvider";
 
@@ -10,6 +10,11 @@ export const SignUp = () => {
   const navigate = useNavigate();
   const user = useCurrentUser();
   const { newUser } = useAuth();
+
+  useEffect(() => {
+    if (user?.username) navigate("/main", { replace: true });
+    //eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   const handleSubmit = async (e) => {
     try {

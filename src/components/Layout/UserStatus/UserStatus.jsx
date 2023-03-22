@@ -7,7 +7,6 @@ import { useEffect, useState } from "react";
 export const UserStatus = () => {
   const user = useCurrentUser();
   const navigate = useNavigate();
-  console.log(`*** user ==> ` + JSON.stringify(user));
 
   const [thisUser, setThisUser] = useState(user);
 

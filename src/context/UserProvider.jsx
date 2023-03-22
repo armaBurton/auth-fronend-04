@@ -26,16 +26,6 @@ export const UserProvider = ({ children }) => {
   };
 
   //eslint-disable-next-line react-hooks/exhaustive-deps
-  const setUserNull = useCallback(() => {
-    setUser(null);
-  });
-
-  //eslint-disable-next-line react-hooks/exhaustive-deps
-  const logout = useCallback(() => {
-    signOut().then(() => setUser(null));
-  });
-
-  //eslint-disable-next-line react-hooks/exhaustive-deps
   const newUser = async ({ username, password }) => {
     console.log(`*** username, password ==> ` + username, password);
     try {
@@ -45,6 +35,16 @@ export const UserProvider = ({ children }) => {
       throw err;
     }
   };
+
+  //eslint-disable-next-line react-hooks/exhaustive-deps
+  const setUserNull = useCallback(() => {
+    setUser(null);
+  });
+
+  //eslint-disable-next-line react-hooks/exhaustive-deps
+  const logout = useCallback(() => {
+    signOut().then(() => setUser(null));
+  });
 
   useEffect(() => {
     getCurrentUser()
@@ -79,5 +79,9 @@ export const useAuth = () => {
   if (context === undefined)
     throw new Error("useAuth must be used within a UserProvider");
 
-  return { logout: context.logout, login: context.login };
+  return {
+    logout: context.logout,
+    login: context.login,
+    newUser: context.newUser,
+  };
 };
