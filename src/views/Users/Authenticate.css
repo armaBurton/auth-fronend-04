@@ -27,10 +27,12 @@ button {
   height: 30px;
   font-weight: 900;
   font-size: 1.25rem;
+  cursor: pointer;
 }
 
 label {
   color: yellow;
+  margin-bottom: 5px;
 }
 
 input {
