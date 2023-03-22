@@ -29,6 +29,9 @@ button {
   font-size: 1.25rem;
   cursor: pointer;
 }
+button:hover {
+  background-color: magenta;
+}
 
 label {
   color: yellow;
