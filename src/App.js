@@ -32,14 +32,6 @@ export function App() {
           <Route element={<PrivateRoutes />}>
             <Route element={<Hidden />} path="/hidden" exact />
           </Route>
-          {/* <Route
-            path="/hidden"
-            element={
-              <PrivateRoutes>
-                <Hidden />
-              </PrivateRoutes>
-            }
-          /> */}
         </Route>
       </Routes>
     </Router>
