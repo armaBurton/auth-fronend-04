@@ -20,7 +20,7 @@ export const Authenticate = () => {
     try {
       e.preventDefault();
       await login({ username, password });
-      navigate("/main", { replace: true });
+      navigate("/hidden", { replace: true });
     } catch (err) {
       setError(err);
       navigate("/main", { replace: true });

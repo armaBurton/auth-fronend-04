@@ -20,7 +20,7 @@ export const SignUp = () => {
     try {
       e.preventDefault();
       await newUser({ username, password });
-      navigate("/main", { replace: true });
+      navigate("/hidden", { replace: true });
     } catch (err) {
       setError(err);
       console.error(err);
