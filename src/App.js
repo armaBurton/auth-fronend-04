@@ -26,12 +26,12 @@ export function App() {
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route index element={<Navigate to="/main" />} />
-          <Route element={<PrivateRoutes />}>
-            <Route element={<Hidden />} path="/hidden" exact />
-          </Route>
           <Route path="/main" element={<Main />} />
           <Route path="/signin" element={<Authenticate />} />
           <Route path="/signup" element={<SignUp />} />
+          <Route element={<PrivateRoutes />}>
+            <Route element={<Hidden />} path="/hidden" exact />
+          </Route>
           {/* <Route
             path="/hidden"
             element={
@@ -64,7 +64,7 @@ export function App() {
   //   )
   // );
 
-  return <UserProvider>{router}</UserProvider>;
+  return <>{router}</>;
 
   // return (
   //   <UserProvider>
