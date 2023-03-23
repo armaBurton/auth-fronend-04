@@ -1,17 +1,13 @@
-import { Navigate, Route, Routes } from "react-router-dom";
+import { Navigate, Outlet } from "react-router-dom";
 import { useCurrentUser } from "../../context/UserProvider";
 
-export const PrivateRoutes = async ({ children, ...routeProps }) => {
-  const user = await useCurrentUser();
+export const PrivateRoutes = async (props) => {
+  // const user = await useCurrentUser();
+  console.log(`*** props ==> ` + props);
 
-  // return (
-  //   <Route {...routeProps}>
-  //     {user?.username ? children : Navigate("/main")}
-  //   </Route>
-  // );
-  return user?.username ? (
-    <Route {...routeProps}>{children}</Route>
-  ) : (
-    <Navigate to="/main" />
-  );
+  // user?.username
+  //   ? console.log(`*** user.username ==> ` + user.username)
+  //   : console.log("poopoopeepee");
+  // return user?.username ? <Outlet /> : <Navigate to="/main" />;
+  return <></>;
 };

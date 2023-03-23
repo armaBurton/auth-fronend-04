@@ -1,11 +1,13 @@
 import {
   createBrowserRouter,
   createRoutesFromElements,
+  BrowserRouter as Router,
   Route,
+  Routes,
   RouterProvider,
   Navigate,
 } from "react-router-dom";
-import { UserProvider } from "./context/UserProvider";
+import { UserProvider, useCurrentUser } from "./context/UserProvider";
 import { Layout } from "./components/Layout/Layout";
 import { Authenticate } from "./views/Users/Authenticate";
 import "./App.css";
@@ -17,30 +19,56 @@ import { PrivateRoutes } from "./components/PrivateRoutes/PrivateRoutes";
 import { Hidden } from "./views/Hidden/Hidden";
 
 export function App() {
-  const router = createBrowserRouter(
-    createRoutesFromElements(
-      // <Routes>
-      <Route path="/" element={<Layout />}>
-        <Route index element={<Navigate to="/main" />} />
-        <Route path="/main" element={<Main />} />
-        <Route path="/signin" element={<Authenticate />} />
-        <Route path="/signup" element={<SignUp />} />
-        <Route
-          path="/hidden"
-          element={
-            <PrivateRoutes>
-              <Hidden />
-            </PrivateRoutes>
-          }
-        />
-      </Route>
-      // </Routes>
-    )
+  const user = useCurrentUser();
+
+  const router = (
+    <Router>
+      <Routes>
+        <Route path="/" element={<Layout />}>
+          <Route index element={<Navigate to="/main" />} />
+          <Route element={<PrivateRoutes />}>
+            <Route element={<Hidden />} path="/hidden" exact />
+          </Route>
+          <Route path="/main" element={<Main />} />
+          <Route path="/signin" element={<Authenticate />} />
+          <Route path="/signup" element={<SignUp />} />
+          {/* <Route
+            path="/hidden"
+            element={
+              <PrivateRoutes>
+                <Hidden />
+              </PrivateRoutes>
+            }
+          /> */}
+        </Route>
+      </Routes>
+    </Router>
   );
 
-  return (
-    <UserProvider>
-      <RouterProvider router={router} />
-    </UserProvider>
-  );
+  // const router = createBrowserRouter(
+  //   createRoutesFromElements(
+  //     <Route path="/" element={<Layout />}>
+  //       <Route index element={<Navigate to="/main" />} />
+  //       <Route path="/main" element={<Main />} />
+  //       <Route path="/signin" element={<Authenticate />} />
+  //       <Route path="/signup" element={<SignUp />} />
+  //       <Route
+  //         path="/hidden"
+  //         element={
+  //           <PrivateRoutes>
+  //             <Hidden />
+  //           </PrivateRoutes>
+  //         }
+  //       />
+  //     </Route>
+  //   )
+  // );
+
+  return <UserProvider>{router}</UserProvider>;
+
+  // return (
+  //   <UserProvider>
+  //     <RouterProvider router={router} />
+  //   </UserProvider>
+  // );
 }
