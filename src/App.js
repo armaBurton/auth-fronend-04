@@ -10,7 +10,6 @@ import {
 import { Layout } from "./components/Layout/Layout";
 import { Authenticate } from "./views/Users/Authenticate";
 import "./App.css";
-import { Dashboard } from "./views/Users/Dashboard";
 import { Main } from "./views/Main/Main";
 import { SignUp } from "./views/Users/SignUp";
 import { PrivateRoutes } from "./components/PrivateRoutes/PrivateRoutes";
