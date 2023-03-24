@@ -1,0 +1,7 @@
+.hidden-section {
+  color: aqua;
+  max-width: 80%;
+  min-width: 80%;
+  display: flex;
+  justify-content: flex-start;
+}
