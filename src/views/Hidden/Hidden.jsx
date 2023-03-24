@@ -1,3 +1,6 @@
+import { useCurrentUser } from "../../context/UserProvider";
+
 export const Hidden = () => {
-  return <h1>peepeepoopoo</h1>;
+  const user = useCurrentUser();
+  return <h1>{user.username}</h1>;
 };
