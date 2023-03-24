@@ -5,7 +5,9 @@ export const Hidden = () => {
   const user = useCurrentUser();
   return (
     <section className="hidden-section">
-      <h1>welcome_to_the_hidden_page_{user.username}</h1>
+      <h1>
+        welcome_to_the_hidden_page_<span>{user.username}</span>
+      </h1>
     </section>
   );
 };
