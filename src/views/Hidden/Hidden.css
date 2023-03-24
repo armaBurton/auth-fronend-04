@@ -6,6 +6,10 @@
   justify-content: flex-start;
 }
 
+.hidden-section p {
+  font-size: 1.5rem;
+}
+
 .hidden-section span {
   color: yellow;
 }
