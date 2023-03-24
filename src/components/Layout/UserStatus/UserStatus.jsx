@@ -1,12 +1,11 @@
 import "./UserStatus.css";
-import { Link, useNavigate } from "react-router-dom";
-import { useAuth, useCurrentUser } from "../../../context/UserProvider";
+import { Link } from "react-router-dom";
+import { useCurrentUser } from "../../../context/UserProvider";
 import { signOut } from "../../../services/users";
 import { useEffect, useState } from "react";
 
 export const UserStatus = () => {
   const user = useCurrentUser();
-  const navigate = useNavigate();
 
   const [thisUser, setThisUser] = useState(user);
 
