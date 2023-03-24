@@ -21,46 +21,35 @@ import { Hidden } from "./views/Hidden/Hidden";
 export function App() {
   const user = useCurrentUser();
 
-  const router = (
-    <Router>
-      <Routes>
-        <Route path="/" element={<Layout />}>
-          <Route index element={<Navigate to="/main" />} />
-          <Route path="/main" element={<Main />} />
-          <Route path="/signin" element={<Authenticate />} />
-          <Route path="/signup" element={<SignUp />} />
-          <Route element={<PrivateRoutes />}>
-            <Route element={<Hidden />} path="/hidden" exact />
-          </Route>
+  // const router = (
+  //   <Router>
+  //     <Routes>
+  //       <Route path="/" element={<Layout />}>
+  //         <Route index element={<Navigate to="/main" />} />
+  //         <Route path="/main" element={<Main />} />
+  //         <Route path="/signin" element={<Authenticate />} />
+  //         <Route path="/signup" element={<SignUp />} />
+  //         <Route element={<PrivateRoutes />}>
+  //           <Route element={<Hidden />} path="/hidden" exact />
+  //         </Route>
+  //       </Route>
+  //     </Routes>
+  //   </Router>
+  // );
+
+  const router = createBrowserRouter(
+    createRoutesFromElements(
+      <Route path="/" element={<Layout />}>
+        <Route index element={<Navigate to="/main" />} />
+        <Route path="/main" element={<Main />} />
+        <Route path="/signin" element={<Authenticate />} />
+        <Route path="/signup" element={<SignUp />} />
+        <Route element={<PrivateRoutes />}>
+          <Route element={<Hidden />} path="/hidden" />
         </Route>
-      </Routes>
-    </Router>
+      </Route>
+    )
   );
 
-  // const router = createBrowserRouter(
-  //   createRoutesFromElements(
-  //     <Route path="/" element={<Layout />}>
-  //       <Route index element={<Navigate to="/main" />} />
-  //       <Route path="/main" element={<Main />} />
-  //       <Route path="/signin" element={<Authenticate />} />
-  //       <Route path="/signup" element={<SignUp />} />
-  //       <Route
-  //         path="/hidden"
-  //         element={
-  //           <PrivateRoutes>
-  //             <Hidden />
-  //           </PrivateRoutes>
-  //         }
-  //       />
-  //     </Route>
-  //   )
-  // );
-
-  return <>{router}</>;
-
-  // return (
-  //   <UserProvider>
-  //     <RouterProvider router={router} />
-  //   </UserProvider>
-  // );
+  return <RouterProvider router={router} />;
 }
