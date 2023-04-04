@@ -11,7 +11,7 @@ export const getCurrentUser = async () => {
   }
 };
 
-export const getUserById = async (id) => {
+export const getUserByd = async (id) => {
   try {
     const res = await fetch(`http://localhost:7890/api/v1/users/${id}`, {
       headers: { "Content-Type": "application/json" },
