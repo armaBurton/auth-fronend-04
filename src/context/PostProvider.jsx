@@ -15,4 +15,15 @@ export const PostsProvider = ({ children }) => {
       .catch(setError)
       .finally(() => setLoading(false));
   }, []);
+
+  const state = useMemo(
+    () => ({ error, loading, posts }),
+    [error, loading, posts]
+  );
+
+  return (
+    <PostsContext.Provider value={state}>
+      {renderView({ ...state, children })}
+    </PostsContext.Provider>
+  );
 };
