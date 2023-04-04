@@ -27,3 +27,21 @@ export const PostsProvider = ({ children }) => {
     </PostsContext.Provider>
   );
 };
+
+export const usePosts = () => {
+  const context = useContext(PostsContext);
+
+  if (context === undefined)
+    throw new Error("usePosts must be used withing a PostsProvider");
+
+  return context.posts;
+};
+
+export const usePost = (id) => {
+  const context = useContext(PostsContext);
+
+  if (context === undefined)
+    throw new Error("usePost must be used withing a PostsProvider");
+
+  return context.posts.find((post) => post.id === id);
+};
