@@ -12,6 +12,7 @@ import { Main } from "./views/Main/Main";
 import { SignUp } from "./views/Users/SignUp";
 import { PrivateRoutes } from "./components/PrivateRoutes/PrivateRoutes";
 import { Hidden } from "./views/Hidden/Hidden";
+import { PostDetail } from "./components/Posts/PostDetail";
 
 export function App() {
   const router = createBrowserRouter(
@@ -23,6 +24,7 @@ export function App() {
         <Route path="/signup" element={<SignUp />} />
         <Route element={<PrivateRoutes />}>
           <Route element={<Hidden />} path="/hidden" />
+          <Route element={<PostDetail />} path="/posts/:id" />
         </Route>
       </Route>
     )
