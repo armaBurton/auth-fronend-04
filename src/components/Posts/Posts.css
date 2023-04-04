@@ -1,0 +1,12 @@
+ul {
+  list-style: none;
+}
+
+.link-decoration {
+  text-decoration: none;
+}
+
+.post-title {
+  color: lime;
+  margin-bottom: 5px;
+}

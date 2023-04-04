@@ -1,5 +1,6 @@
 import { useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
+import "./Posts.css";
 
 export default function Posts({ posts, currentSelected }) {
   const focused = useRef();
@@ -14,11 +15,12 @@ export default function Posts({ posts, currentSelected }) {
   return (
     <ul>
       {posts.map((post) => (
-        <li key={post.id}>
+        <li key={post.id} className="list-element">
           <Link
+            className="link-decoration"
             to={`/posts/${post.id} {...{ref: currentSelected=== post.id ? focused: null}}`}
           >
-            {post.title}
+            <p className="post-title">{post.title}</p>
           </Link>
         </li>
       ))}
