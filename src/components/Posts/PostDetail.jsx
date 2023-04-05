@@ -4,8 +4,15 @@ import { useParams } from "react-router-dom";
 export const PostDetail = () => {
   const { id } = useParams();
 
-  const post = usePost(id);
-  console.log(`*** post ==> ` + JSON.stringify(post));
+  // const post = usePost(id);
+  const { title, content, author } = usePost(id);
+  console.log(`*** title, content, author ==> ` + title, content, author);
 
-  return <>peepeepoopoo</>;
+  return (
+    <div>
+      <h1>{title}</h1>
+      <p>{content}</p>
+      <p>{author}</p>
+    </div>
+  );
 };
