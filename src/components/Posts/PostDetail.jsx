@@ -5,7 +5,7 @@ export const PostDetail = () => {
   const { id } = useParams();
 
   const post = usePost(id);
-  console.log(`*** post ==> ` + post);
+  console.log(`*** post ==> ` + JSON.stringify(post));
 
   return <>peepeepoopoo</>;
 };
