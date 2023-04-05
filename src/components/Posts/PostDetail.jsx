@@ -10,8 +10,8 @@ export const PostDetail = async () => {
   const { title, content, author } = usePost(id);
   console.log(`*** title, content, author ==> ` + title, content, author);
 
-  const findAuthor = getUserById(author);
-  console.log(`*** findAuthor ==> ` + findAuthor);
+  // const findAuthor = getUserById(author);
+  // console.log(`*** findAuthor ==> ` + findAuthor);
 
   return (
     <div className="post-container">

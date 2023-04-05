@@ -1,6 +1,7 @@
 import { createContext, useContext, useEffect, useMemo, useState } from "react";
 import { getPosts } from "../services/posts";
 import { renderView } from "../utils/renderView";
+import { getUserById } from "../services/users";
 
 const PostsContext = createContext();
 
@@ -37,11 +38,14 @@ export const usePosts = () => {
   return context.posts;
 };
 
-export const usePost = (id) => {
+export const usePost = async (id) => {
   const context = useContext(PostsContext);
 
   if (context === undefined)
     throw new Error("usePost must be used withing a PostsProvider");
+  console.log(`*** id ==> ` + id);
+  const author = await getUserById(id);
+  console.log(`*** author ==> ` + JSON.stringify(author));
 
   return context.posts.find((post) => post.id === id);
 };
