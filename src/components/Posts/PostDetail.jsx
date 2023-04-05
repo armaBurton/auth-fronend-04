@@ -1,5 +1,6 @@
 import { usePost } from "../../context/PostProvider";
 import { useParams } from "react-router-dom";
+import "./PostDetail.css";
 
 export const PostDetail = () => {
   const { id } = useParams();
@@ -9,7 +10,7 @@ export const PostDetail = () => {
   console.log(`*** title, content, author ==> ` + title, content, author);
 
   return (
-    <div>
+    <div className="post-container">
       <h1>{title}</h1>
       <p>{content}</p>
       <p>{author}</p>
