@@ -39,22 +39,28 @@ export const usePosts = () => {
 
 export const usePost = (id) => {
   const context = useContext(PostsContext);
-  const numId = Number(id.id);
-  console.log(`*** numId ==> ` + numId);
 
   if (context === undefined)
     throw new Error("usePost must be used withing a PostsProvider");
 
   const posts = context.posts;
 
-  posts.find((post) => {
-    if (post.id === Number(numId)) {
-      console.log(`*** JSON.stringify(post) ==> ` + JSON.stringify(post.title));
-      return post;
+  const thisPost = posts.find((post) => {
+    if (post.id === id) {
+      const postJSON = {
+        id: post.id,
+        title: post.title,
+        content: post.content,
+        author: post.author,
+      };
+
+      return postJSON;
     }
     console.log("did not find");
     return null;
   });
 
-  return context.posts.find((post) => post.id === JSON.stringify(id));
+  console.log(`*** thisost ==> ` + thisPost);
+  return thisPost;
+  // return context.posts.find((post) => post.id === JSON.stringify(id));
 };
