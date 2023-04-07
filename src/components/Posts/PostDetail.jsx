@@ -3,7 +3,7 @@ import { useParams } from "react-router-dom";
 import "./PostDetail.css";
 import { getUserById } from "../../services/users";
 
-export const PostDetail = async () => {
+export const PostDetail = () => {
   const { id } = useParams();
 
   // const post = usePost(id);

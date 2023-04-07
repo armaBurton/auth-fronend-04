@@ -45,7 +45,7 @@ export const usePost = async (id) => {
     throw new Error("usePost must be used withing a PostsProvider");
   console.log(`*** id ==> ` + id);
   const author = await getUserById(id);
-  console.log(`*** author ==> ` + JSON.stringify(author));
+  console.log(`*** author ==> ` + author);
 
   return context.posts.find((post) => post.id === id);
 };
