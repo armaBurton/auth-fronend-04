@@ -15,7 +15,7 @@ export const PostDetail = () => {
   }, []);
 
   // const post = usePost(id);
-  console.log(`*** post ==> ` + JSON.stringify(post));
+
   // const { title, content, author } = usePost(id);
   // console.log(`*** title, content, author ==> ` + title, content, author);
 
