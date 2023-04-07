@@ -16,8 +16,7 @@ export default function Posts({ posts, currentSelected }) {
           <Link
             className="link-decoration"
             to={`/posts/${post.id}`}
-            post={post}
-            // to={`/posts/${post.id} {...{ref: currentSelected=== post.id ? focused: null}}`}
+            {...{ ref: currentSelected === post.id ? focused : null }}
           >
             <p className="post-title">{post.title}</p>
           </Link>
