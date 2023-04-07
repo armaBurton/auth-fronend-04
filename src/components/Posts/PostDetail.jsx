@@ -1,21 +1,29 @@
 import { useRef, useEffect } from "react";
-import { usePost } from "../../context/PostProvider";
+import { usePost, usePosts } from "../../context/PostProvider";
 import { useParams } from "react-router-dom";
 import "./PostDetail.css";
 import { getUserById } from "../../services/users";
 
 export const PostDetail = () => {
   const { id } = useParams();
+  const posts = usePosts();
   const post = usePost(id);
   const link = useRef();
-  console.log(`*** id ==> ` + id);
 
-  useEffect(() => {
-    link.current.focus();
-  }, []);
+  // useEffect(() => {
+  //   link.current.focus();
+  // }, []);
 
   // const post = usePost(id);
-
+  console.log(
+    `*** 17` +
+      posts.find(
+        (post) =>
+          post.id === id &&
+          console.log(`*** 51 post ==> ` + JSON.stringify(post))
+      )
+  );
+  console.log(`*** post ==> ` + JSON.stringify(post));
   // const { title, content, author } = usePost(id);
   // console.log(`*** title, content, author ==> ` + title, content, author);
 
